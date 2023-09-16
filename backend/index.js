@@ -31,6 +31,7 @@ import investmentRouter from './routes/investment.js';
 import cost_of_living_router from './routes/cost_of_living.js';
 import budget_items_router from './routes/budget_items.js';
 import stocksRouter from './routes/stocks.js';
+import openAIRouter from './routes/openai.js';
 // initialize the app with cors
 app.use(cors());
 app.use(auth(config));
@@ -45,6 +46,7 @@ app.use('/investment', investmentRouter);
 app.use('/cost_of_living', cost_of_living_router);
 app.use('/budget_items', budget_items_router);
 app.use('/stocks', stocksRouter);
+app.use('/openai', openAIRouter);
 
 
 const server = app.listen(port, () => {
