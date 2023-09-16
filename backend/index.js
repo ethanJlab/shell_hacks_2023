@@ -27,7 +27,10 @@ app.set('view engine', 'jade');
 import exampleRouter from './routes/example.js';
 import userRouter from './routes/user.js';
 import debtRouter from './routes/debt.js';
-//import investmentRouter from './routes/investment.js';
+import investmentRouter from './routes/investment.js';
+import cost_of_living_router from './routes/cost_of_living.js';
+import budget_items_router from './routes/budget_items.js';
+import stocksRouter from './routes/stocks.js';
 // initialize the app with cors
 app.use(cors());
 app.use(auth(config));
@@ -38,7 +41,11 @@ app.use(bodyParser.json())
 app.use('/example', exampleRouter);
 app.use('/user', userRouter);
 app.use('/debts', debtRouter);
-//app.use('/investment', investmentRouter);
+app.use('/investment', investmentRouter);
+app.use('/cost_of_living', cost_of_living_router);
+app.use('/budget_items', budget_items_router);
+app.use('/stocks', stocksRouter);
+
 
 const server = app.listen(port, () => {
     console.log(`Listening on port ${port}`)
