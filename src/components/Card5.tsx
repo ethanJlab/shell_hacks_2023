@@ -3,8 +3,8 @@ const Card5 = () => {
 
     return ( 
         <div>
-            <p>With {investmentMoneyResult} you can buy</p>
-            <ul>
+            <p className="text-6xl">With {investmentMoneyResult} you can buy:</p>
+            <ul className="flex flex-col gap-5 pt-5 text-2xl text-center">
                 <li>Down payment on new car</li>
                 <li>Pay off some student loan debt</li>
                 <li>Vacation to Bali</li>
