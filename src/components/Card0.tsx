@@ -1,6 +1,7 @@
 const Card0 = () => {
     return ( 
         <div>
+            
             <span className="text-6xl max-w-[600px]">Welcome</span>
             <p className="text-2xl max-w-[600px] pt-3">Let's get started with your income</p>
             <div className="pt-5 w-1/2 flex">

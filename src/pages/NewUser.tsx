@@ -8,14 +8,18 @@ import Card3 from '../components/Card3';
 import Card4 from '../components/Card4';
 import Card5 from '../components/Card5';
 import Auth0Card from '../components/Auth0Card';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const NewUser:React.FC = () => {
-
+    const { loginWithRedirect } = useAuth0();
 
     const [activeStep, setActiveStep] = useState(0);
 
     const handleNext = () => {
-        if (activeStep < 6) setActiveStep((prevStep) => prevStep + 1);
+        if (activeStep < 6) setActiveStep((prevStep) => prevStep + 1)
+        else {
+          loginWithRedirect();
+        }
     }
 
     const handleBack = () => {setActiveStep((prevStep) => prevStep - 1)}
@@ -38,7 +42,8 @@ const NewUser:React.FC = () => {
         
         <div className='flex justify-between w-full justify-self-end'>
           <button disabled={activeStep === 0} onClick={handleBack} className=''><MoveLeft/></button>
-          <button onClick={handleNext} className=''>{activeStep === 6 ? 'Create account' : <MoveRight/>}</button>
+          <button onClick={handleNext} className=''>{activeStep === 6 ? 'Create Auth0 Account' : <MoveRight/>}</button>
+          
       
         </div>
       </div>
