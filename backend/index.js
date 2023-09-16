@@ -3,7 +3,18 @@ import { Router } from 'express';
 import path from 'path';
 import cors from 'cors';
 import bodyParser from 'body-parser'
+import {auth} from 'express-openid-connect';
 const router = Router();
+
+const config = {
+    authRequired: false,
+    auth0Logout: true,
+    secret: 'jfghujfhjgvfuivdjnvisndi',
+    baseURL: 'http://localhost:5000',
+    clientID: 'h7C3ao2SQuA5pX2I54fP2Pa7lER1lbd3',
+    issuerBaseURL: 'https://dev-xhc2dcreaqasyjnj.us.auth0.com'
+};
+
 
 const app = express();
 const port = 5000;
@@ -19,6 +30,7 @@ import debtRouter from './routes/debt.js';
 //import investmentRouter from './routes/investment.js';
 // initialize the app with cors
 app.use(cors());
+app.use(auth(config));
 
 app.use(bodyParser.json())
 
@@ -31,6 +43,11 @@ app.use('/debts', debtRouter);
 const server = app.listen(port, () => {
     console.log(`Listening on port ${port}`)
 });
+
+// req.isAuthenticated is provided from the auth router
+app.get('/', (req, res) => {
+    res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
+  });
 
 
 
