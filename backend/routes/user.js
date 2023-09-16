@@ -39,6 +39,16 @@ userRouter.put('/:id', (req, res) => {
     });
 });
 
+// add debt ID to the list of debt IDs
+// PUT /user/:id/addDebt
+userRouter.put('/:id/addDebt', (req, res) => {
+    pb.collection('user').update(req.params.id, { $push: { Debt_IDs: req.body.Debt_IDs } }).then((user) => {
+        res.json(user);
+    }).catch((err) => {
+        res.json(err);
+    });
+});
+
 
 
 
