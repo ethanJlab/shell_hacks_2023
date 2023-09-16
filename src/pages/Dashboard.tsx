@@ -1,14 +1,14 @@
 export default function DashboardPage(): React.ReactElement {
   return (
-    <div className="w-full h-screen flex-col md:flex">
+    <div className="w-full h-screen  flex">
         {/* Section For the GPT Recommendation */}
-      <div className="h-1/2 md:h-full md:w-1/3  bg-purple-300 align-self-start">
+      <div className="h-full w-1/3  bg-purple-300 align-self-start">
         GPT Suggestions
       </div>
       {/* Right half of screen that contains Debts Investments and Budget */}
-      <div className="h-1/2 md:h-full flex flex-col-reverse md:flex-col md:w-2/3 bg-indigo-500 align-self-end ">
+      <div className="h-full flex flex-col w-2/3 bg-indigo-500 align-self-end ">
         {/* Top half that contains the Debts Visual and Invests visual */}
-        <div className="h-full md:h-1/2 flex flex-row">
+        <div className=" h-1/2 flex flex-row">
             <div className="w-1/2 bg-green-300">
                 Debt Visual
             </div>
@@ -17,7 +17,7 @@ export default function DashboardPage(): React.ReactElement {
             </div>
         </div>
         {/* Bottom Half that contains the Budget Visual */}
-        <div className="h-full md:h-1/2 bg-white">
+        <div className="h-1/2 bg-white">
             Budget Visual
         </div>
       </div>
