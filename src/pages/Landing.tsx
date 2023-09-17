@@ -7,12 +7,12 @@ export default function LandingPage():ReactElement{
 
     }
     return(
-        <div>
-            <p>This is our landing page</p>
+        <div className="">
+            <p className="text-white">This is our landing page</p>
 
-            <a><Link to={"/App"}> Go To App :)</Link></a>
+            <a><Link to={"/App"} className="text-white"> Go To App :)</Link></a>
             <br/>
-            <a><Link to={"/Dashboard"}>Go To Dashboard</Link></a>
+            <a><Link to={"/Dashboard"} className="text-white">Go To Dashboard</Link></a>
         </div>
     )
 }
