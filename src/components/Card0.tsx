@@ -13,7 +13,7 @@ const Card0:React.FC<Card0Props> = ({handleIncome, incomeError, handleIncomeErro
             <div className="pt-5 w-1/2">
                 <div className="flex">
                     <span className="font-medium text-xl pr-1 pt-0.5">$</span>
-                    <input type="number" placeholder="12,000" min={12000}
+                    <input type="number" placeholder="12,000"
                         className=" focus:outline-none text-neutral-950 rounded p-1 w-full"
                         onChange={(e) => {
                             handleIncome(e.target.valueAsNumber);

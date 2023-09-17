@@ -18,6 +18,27 @@ const NewUser:React.FC = () => {
     const [income, setIncome] = useState(0);
     const [incomeError, setIncomeError] = useState(false);
 
+    const [creditDebt, setCreditDebt] = useState(0);
+    const [mortgageDebt, setMortgageDebt] = useState(0);
+    const [studentDebt, setStudentDebt] = useState(0);
+    const [autoDebt, setAutoDebt] = useState(0);
+
+    const handleCreditDebt = (credit:number) => {
+      setCreditDebt(credit);
+    }
+
+    const handleMortgageDebt = (mortgage:number) => {
+      setMortgageDebt(mortgage);
+    }
+
+    const handleStudentDebt = (student:number) => {
+      setStudentDebt(student);
+    }
+
+    const handleAutoDebt = (auto:number) => {
+      setAutoDebt(auto);
+    }
+
     const handleIncome = (income:number) => {
       setIncome(income);
     }
@@ -49,7 +70,7 @@ const NewUser:React.FC = () => {
       <div className='bg-neutral-800 min-h-[70vh] w-[720px] my-10 rounded-xl px-16 py-10 flex flex-col justify-between'>
         <>
           {activeStep === 0 && <Card0 handleIncome={handleIncome} incomeError={incomeError} handleIncomeError={handleIncomeError}></Card0>}
-          {activeStep === 1 && <Card1></Card1>}
+          {activeStep === 1 && <Card1 handleCreditDebt={handleCreditDebt} handleMortgageDebt={handleMortgageDebt} handleStudentDebt={handleStudentDebt} handleAutoDebt={handleAutoDebt}></Card1>}
           {activeStep === 2 && <Card2 income={income}></Card2>}
           {activeStep === 3 && <Card3></Card3>}
           {activeStep === 4 && <Card4></Card4>}
