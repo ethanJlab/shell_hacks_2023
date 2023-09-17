@@ -1,30 +1,35 @@
 import { Stepper, Step, StepLabel, Button } from '@mui/material';
+import { number } from 'prop-types';
 import { useState } from 'react';
 
 
-const StepperComponent = () => {
-    const [activeStep, setActiveStep] = useState(0);
+type StepperComponentProps = {
+    activeStep: number,
+}
 
-    const handleNext = () => {setActiveStep((prevStep) => prevStep + 1)}
-
-    const handleBack = () => {setActiveStep((prevStep) => prevStep - 1)}
-
+const StepperComponent:React.FC<StepperComponentProps> = ({activeStep}) => {
+   
     return ( 
         <>
-            <>  
-                <Button
-                    disabled={activeStep === 0}
-                    onClick={handleBack}
-                >
-                    Back
-                </Button>
-                <Button onClick={handleNext}>{activeStep === 2 ? 'Move on' : 'Next'}</Button>
-            </>
-            <div className=''>
-                <Stepper activeStep={activeStep} className='w-1/2'>
+        
+            <div className='w-3/4'>
+                <Stepper activeStep={activeStep}>
                     <Step>
                         <StepLabel></StepLabel>
                     </Step>
+                    <Step>
+                        <StepLabel></StepLabel>
+                    </Step>
+                    <Step>
+                        <StepLabel></StepLabel>
+                    </Step>
+                    <Step>
+                        <StepLabel></StepLabel>
+                    </Step>
+                    <Step>
+                        <StepLabel></StepLabel>
+                    </Step>
+
                     <Step>
                         <StepLabel></StepLabel>
                     </Step>

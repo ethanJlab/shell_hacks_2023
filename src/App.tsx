@@ -1,15 +1,9 @@
-import { useState } from 'react'
-import StepperComponent from './components/StepperComponent'
+import NewUser from './pages/NewUser'
 import './index.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <StepperComponent />
-    </>
-
+    <NewUser></NewUser>
   )
 }
 
