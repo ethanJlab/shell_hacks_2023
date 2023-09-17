@@ -1,11 +1,21 @@
 import { ReactElement, useState } from "react";
 import { TextField,Button } from "@mui/material";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function LandingPage(): ReactElement {
   const [userName, setUserName] = useState("");
   const [userPass, setUserPass] = useState("");
   const [isLoading,setIsLoading] = useState(false);
+  
+  const dashNavi = useNavigate();
+  
+
+  const goDash = () => {
+    
+
+    dashNavi("/Dashboard",{state: {userID: 'myUserId'}});
+  }
+
 
    const handleLogin = async () => {
     
@@ -14,10 +24,18 @@ export default function LandingPage(): ReactElement {
     
     setIsLoading(true);
     
-    setIsLoading(false);
+    await setTimeout(() => {
+      setIsLoading(false);
+      goDash();
+    },1000);
+
+
+    
+    
+    
    }
 
-  const routeToApp = () => {};
+  
   return (
     <div className="flex  justify-center items-center h-full">
       <div className="bg-neutral-900 flex flex-col w-1/2 h-1/3 justify-center items-center gap-10 p-5 rounded-xl">
@@ -34,7 +52,7 @@ export default function LandingPage(): ReactElement {
         </div>
 
         <div>
-            <Button variant="contained" className="bg-[#FAF9F6]" onClick={handleLogin}>{ isLoading ? "Loading..." : "Submit"}</Button>
+            <Button variant="contained" className="bg-[#FAF9F6]" onClick={handleLogin} disabled={isLoading}><p>{ isLoading ? "Loading..." : "Submit"}</p></Button>
         </div>
 
         <div>

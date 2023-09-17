@@ -12,8 +12,16 @@ import {
 } from "chart.js";
 import LineGraph from "../components/LineGraph";
 import InvestGraph from "../components/InvestGraph";
+import { useLocation } from "react-router";
 
 export default function DashboardPage(props:any): React.ReactElement {
+
+  const {state} = useLocation();
+
+  const {userId} = state;
+
+  console.log(userId);
+
   ChartJS.register(
     CategoryScale,
     LinearScale,
