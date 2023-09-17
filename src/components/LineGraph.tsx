@@ -38,15 +38,28 @@ export default function LineGraph():React.ReactElement{
         },
       };
     
+      // const labels = [
+      //   "January",
+      //   "February",
+      //   "March",
+      //   "April",
+      //   "May",
+      //   "June",
+      //   "July",
+      // ];
+
       const labels = [
+        "September",
+        "October",
+        "November",
+        "December",
         "January",
         "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-      ];
+        "March"
+    ];
+
+      //To do this math we need an average percentage of the total dollar amount as well as the type, WE can add this up on the user screen 
+      // pass a prop to this value where its simply the value
     
       const debtData = {
         labels,
