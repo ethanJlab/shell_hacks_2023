@@ -76,8 +76,8 @@ export default function LineGraph(props:any):React.ReactElement{
         labels,
         datasets:[
           {
-            label: 'Debt Progress YTD',
-            data: labels.map((currItem,index) => 3 + (3 * index) ),
+            label: 'Credit Debt Progress',
+            data: labels.map((currItem,index) => (userDebt.debtAmount+(userDebt.debtAmount*.017*index)) ),
             borderColor: 'rgb(255, 0, 0)',
             backgroundColor: 'rgba(255, 99, 132, 0.5)',
           }

@@ -73,8 +73,8 @@ const NewUser:React.FC = () => {
           {activeStep === 1 && <Card1 handleCreditDebt={handleCreditDebt} handleMortgageDebt={handleMortgageDebt} handleStudentDebt={handleStudentDebt} handleAutoDebt={handleAutoDebt}></Card1>}
           {activeStep === 2 && <Card2 income={income}></Card2>}
           {activeStep === 3 && <Card3></Card3>}
-          {activeStep === 4 && <Card4></Card4>}
-          {activeStep === 5 && <Card5></Card5>}
+          {activeStep === 4 && <Card4 input={income}></Card4>}
+          {activeStep === 5 && <Card5 results={(income*0.1*1.22).toFixed(2)}></Card5>}
           {activeStep === 6 && <Auth0Card></Auth0Card>}
         </>
         
