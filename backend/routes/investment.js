@@ -59,4 +59,23 @@ investmentRouter.put('/:id/addInvestment', (req, res) => {
     });
 });
 
+// gets monthly stock data
+investmentRouter.get('/getMonthlyStockData/:stock', async (req, res) => {
+    const stock = req.params.stock;
+
+    // make an http request to
+    // https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol=VEGBX&apikey=27SVLL2I9TYG0S2Y
+
+    const response = await fetch(
+        `https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol=${stock}&apikey=27SVLL2I9TYG0S2Y`
+    );
+    if (!response.ok) {
+        return res.status(response.status).send(response.statusText);
+    }
+    const json = await response.json();
+
+    res.json(json);
+});
+//
+
 export default investmentRouter;
