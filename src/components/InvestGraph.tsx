@@ -39,14 +39,14 @@ export default function InvestGraph():React.ReactElement{
       };
     
       const labels = [
-        "January",
         "February",
         "March",
         "April",
         "May",
         "June",
         "July",
-      ];
+        "August"
+    ];
     
       const debtData = {
         labels,

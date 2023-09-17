@@ -13,7 +13,7 @@ import {
 import LineGraph from "../components/LineGraph";
 import InvestGraph from "../components/InvestGraph";
 
-export default function DashboardPage(): React.ReactElement {
+export default function DashboardPage(props:any): React.ReactElement {
   ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -24,6 +24,8 @@ export default function DashboardPage(): React.ReactElement {
     Tooltip,
     Legend
   );
+
+  
 
   const options = {
     responsive: true,
@@ -38,14 +40,37 @@ export default function DashboardPage(): React.ReactElement {
     },
   };
 
+  // const labels = [
+  //   "Supermarkets",
+  //   "Restaurants",
+  //   "Merchandise",
+  //   "Services",
+  //   "Entertainment",
+  //   "Home Improvement",
+  //   "Gasoline",
+  // ];
+
+  
+  //   "Housing": "25% 
+  //   "Transportation": "15% 
+  //   "Food": "15% 
+  //   "Savings and Investments": "10%
+  //   "Utilities and Bills": "10% 
+  //   "Healthcare": "5%
+  //   "Debt Repayment": "10%
+  //   "Entertainment and Leisure": "5% 
+  //   "Personal Care and Miscellaneous": "5% 
+  
+
   const labels = [
-    "Supermarkets",
-    "Restaurants",
-    "Merchandise",
-    "Services",
+    "Housing",
+    "Transportation",
+    "Food",
+    "Utilities and Bills",
+    "Healthcare",
+    "Debt Repayment",
     "Entertainment",
-    "Home Improvement",
-    "Gasoline",
+    "Miscellaneous"
   ];
 
   const data = {
@@ -53,11 +78,11 @@ export default function DashboardPage(): React.ReactElement {
     datasets: [
       {
         label: "Current Spending",
-        data: labels.map(() => 150),
+        data: labels.map((currItem,index) => 50),
         backgroundColor: "rgba(255, 99, 132, 0.5)",
       },
       {
-        label: "Target Spending",
+        label: "Max Spending",
         data: labels.map(() => 560),
         backgroundColor: "rgba(53, 162, 235, 0.5)",
       },
