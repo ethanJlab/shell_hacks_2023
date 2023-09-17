@@ -12,7 +12,18 @@ import {
 } from "chart.js";
 
 
-export default function LineGraph():React.ReactElement{
+
+
+export default function LineGraph(props:any):React.ReactElement{
+
+    const userDebt= props.debts;
+
+    if(userDebt.debtType == 0){
+      //user Has no Debt, Just have default graph
+      
+    }
+
+
 
     ChartJS.register(
         CategoryScale,

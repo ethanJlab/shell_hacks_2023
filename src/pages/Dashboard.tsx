@@ -13,12 +13,22 @@ import {
 import LineGraph from "../components/LineGraph";
 import InvestGraph from "../components/InvestGraph";
 import { useLocation } from "react-router";
+import {useEffect} from "react";
 
 export default function DashboardPage(props:any): React.ReactElement {
 
   const {state} = useLocation();
 
   const {userId} = state;
+
+  const defaultDebt = {
+    debtType: 0,
+    debtAmount: 0,
+  }
+
+  useEffect(() => {
+    //here is where we really need to gather some of this user info 
+  })
 
   console.log(userId);
 
@@ -108,7 +118,7 @@ export default function DashboardPage(props:any): React.ReactElement {
         {/* Top half that contains the Debts Visual and Invests visual */}
         <div className=" h-full flex flex-row items-center bg-neutral-800 rounded-lg m-3.5">
           <div className="w-1/2 h-full p-3">
-            <LineGraph />
+            <LineGraph debts={defaultDebt}/>
             
           </div>
           <div className=" w-1/2 h-full p-3">
