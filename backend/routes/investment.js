@@ -76,6 +76,29 @@ investmentRouter.get('/getMonthlyStockData/:stock', async (req, res) => {
 
     res.json(json);
 });
+
+// ytd
+investmentRouter.get('/getYTD/:stock', async (req, res) => {
+    const stock = req.params.stock;
+
+    // make an http request to
+
+    const response = await fetch(
+        `https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol=${stock}&apikey=27SVLL2I9TYG0S2Y`
+    );
+
+    if (!response.ok) {
+        return res.status(response.status).send(response.statusText);
+    }
+    const json = await response.json();
+    // compare the last month to the year before
+    const lastMonth = json['Monthly Time Series'][Object.keys(json['Monthly Time Series'])[0]];
+    const yearBefore = json['Monthly Time Series'][Object.keys(json['Monthly Time Series'])[12]];
+    const ytd = (lastMonth['4. close'] - yearBefore['4. close']) / yearBefore['4. close'];
+
+    res.json(ytd);
+});
+
 //
 
 export default investmentRouter;
