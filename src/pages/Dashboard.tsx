@@ -16,6 +16,7 @@ import { useLocation } from "react-router";
 import { useState, useEffect } from "react";
 import { Button } from "@mui/base";
 
+
 export default function DashboardPage(props: any): React.ReactElement {
   const { state } = useLocation();
 
@@ -23,16 +24,18 @@ export default function DashboardPage(props: any): React.ReactElement {
 
   const [tipString, setTipString] = useState("");
 
-  const handleClick = async () => {
-    /*
-    await gptComplete().then((res) => {
-      console.log(res)
-    });
-    */
-   let complete = await gptComplete()
-   let data = 
 
-  };
+  const defaultDebt = {
+    debtType: 0,
+    debtAmount: 0,
+  }
+
+  useEffect(() => {
+    //here is where we really need to gather some of this user info 
+  })
+
+  console.log(userId);
+
 
   ChartJS.register(
     CategoryScale,
@@ -118,7 +121,10 @@ export default function DashboardPage(props: any): React.ReactElement {
         {/* Top half that contains the Debts Visual and Invests visual */}
         <div className=" h-full flex flex-row items-center bg-neutral-800 rounded-lg m-3.5">
           <div className="w-1/2 h-full p-3">
-            <LineGraph />
+
+            <LineGraph debts={defaultDebt}/>
+            
+
           </div>
           <div className=" w-1/2 h-full p-3">
             <InvestGraph />
